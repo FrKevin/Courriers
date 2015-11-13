@@ -1,14 +1,21 @@
 package fr.univ_lille1.fil.coo.courriers;
 
+import fr.univ_lille1.fil.coo.courriers.city.Postbox;
+import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
+import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
-import fr.univ_lille1.fil.coo.courriers.letters.decorators.DecoratorLetter;
-import fr.univ_lille1.fil.coo.courriers.letters.decorators.RegisteredLetter;
+import fr.univ_lille1.fil.coo.courriers.letters.decorators.UrgentLetter;
 
 public class Main {
 	public static void main(String[] args) {
-		DecoratorLetter<TextContent> decoLetter = new RegisteredLetter<>(10, new RegisteredLetter<>(10, new SimpleLetter(10, new TextContent("", "DDD"))));
-		System.out.println(decoLetter.getContent());
-		System.out.println(decoLetter.getCost());
+	
+		Postbox p = new Postbox();
+		p.addLetter(new SimpleLetter(new TextContent("dd", "dddd")));
+		System.out.println(p);
+		
+		UrgentLetter u = new UrgentLetter(new SimpleLetter(new TextContent("dd", "dddd")));
+		System.out.println(u.getCost());
+		System.out.println(u.getContent());
 	}
 }

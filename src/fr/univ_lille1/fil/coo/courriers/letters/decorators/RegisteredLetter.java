@@ -5,11 +5,11 @@ import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
-public class RegisteredLetter<T extends Content> extends DecoratorLetter<T> {
+public class RegisteredLetter extends DecoratorLetter {
 	protected static final double EXTRA_COST = 15;
 	
-	public RegisteredLetter(double cost, Letter<T> letter) {
-		super(cost+EXTRA_COST, letter);
+	public RegisteredLetter(Letter<?> letter) {
+		super(letter.getCost()+EXTRA_COST, letter);
 	}
 
 	@Override

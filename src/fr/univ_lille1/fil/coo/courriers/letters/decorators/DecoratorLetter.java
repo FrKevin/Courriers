@@ -3,12 +3,13 @@ package fr.univ_lille1.fil.coo.courriers.letters.decorators;
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 
-public abstract class DecoratorLetter<T extends Content> extends Letter<T> {
+@SuppressWarnings("rawtypes")
+public abstract class DecoratorLetter extends Letter {
 
-	protected Letter<T> letter;
+	protected Letter<?> letter;
 
-	public DecoratorLetter(double cost, Letter<T> letter) {
-		super(cost+letter.getCost());
+	public DecoratorLetter(double cost, Letter<?> letter) {
+		super(cost);
 		this.letter = letter;
 		this.content = letter.getContent();
 	}
