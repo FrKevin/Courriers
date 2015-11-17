@@ -19,7 +19,7 @@ public class PromissoryNote extends Letter<MoneyContent> {
 	}
 	
 	protected void isPossible(){
-		if(!sender.debit(this.getCost())){
+		if(!isNullForSender() && !sender.debit(this.getCost())){
 			throw new IllegalArgumentException("The sender have negative solde account.");
 		}
 	}

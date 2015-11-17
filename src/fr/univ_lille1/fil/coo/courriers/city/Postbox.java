@@ -1,15 +1,28 @@
 package fr.univ_lille1.fil.coo.courriers.city;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 
 public class Postbox {
 
-	protected List<Letter<?>> letters = new ArrayList<>();
+	protected Queue<Letter<?>> letters = new LinkedList<>();
 	
 	public void addLetter(Letter<?> letter){
 		letters.add(letter);
 	}
+	
+	public boolean isEmpty(){
+		return letters.isEmpty();
+	}
+	
+	public Queue<Letter<?>> getLetters() {
+		return letters;
+	}
+
+	public Letter<?> firstLetter() {
+		return letters.poll();
+	}
+	
 }

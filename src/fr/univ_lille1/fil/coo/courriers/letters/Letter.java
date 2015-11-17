@@ -27,12 +27,32 @@ public abstract class Letter<T extends Content> {
 		this.content = content;
 	}
 	
-	public void operation(){
-		if(sender == null || receiver == null )
-			throw new NullPointerException("The sender or receiver is null.");
-		if(content == null)
+	protected boolean isNullForContent(){
+		if(content == null){
 			throw new NullPointerException("The content is null.");
-		action();
+		}
+		return false;
+	}
+	
+	protected boolean isNullForReceiver(){
+		if(receiver == null){
+			throw new NullPointerException("The receiver is null.");
+		}
+		return false;
+	}
+	
+	protected boolean isNullForSender(){
+		if(sender == null){
+			throw new NullPointerException("The sender is null.");
+		}
+		return false;
+	}
+	
+
+	public void operation(){
+		if(isNullForContent() && isNullForReceiver() && isNullForSender() == false){
+			action();
+		}
 	}
 	
 	protected abstract void action();

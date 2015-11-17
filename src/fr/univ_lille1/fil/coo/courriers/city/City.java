@@ -13,22 +13,40 @@ public class City {
 	protected Postbox postbox; 
 	
 	public City(String name){
-		this(name, new ArrayList<>());
-	}
-
-	public City(String name, List<Inhabitant> inhabitants) {
 		this.name = name;
-		this.inhabitants = inhabitants;
+		this.inhabitants = new ArrayList<>();
 		this.postbox = new Postbox();
 	}
-	
+
 	public void addInhabitants(Inhabitant inHabitant){
 		inhabitants.add(inHabitant);
 	}
 	
-	public void sendLetter(Letter<Content> letter){
+	public void sendLetter(Letter<?> letter){
 		postbox.addLetter(letter);
 	}
 	
-	public void distributeLetters(){}	
+	public void distributeLetters(){
+		int index = -1;
+		Letter<?> l;
+		while(postbox.isEmpty()){
+			l = postbox.firstLetter();
+			index = inhabitants.indexOf(l.getReceiver());
+			if(index > -1){
+				inhabitants.get(index).getPostbox().addLetter(l);
+			}
+		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public List<Inhabitant> getInhabitants() {
+		return inhabitants;
+	}
+
+	public Postbox getPostbox() {
+		return postbox;
+	}
 }

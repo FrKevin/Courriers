@@ -2,7 +2,6 @@ package fr.univ_lille1.fil.coo.courriers.letters.decorators;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
-import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
 public class RegisteredLetter extends DecoratorLetter {
@@ -14,7 +13,8 @@ public class RegisteredLetter extends DecoratorLetter {
 
 	@Override
 	protected void action() {
-		SimpleLetter letter = new SimpleLetter(0,new TextContent(receiver.getName(), ""));
+		SimpleLetter receipt = new SimpleLetter(new TextContent(letter.getContent().toString()));
+		receiver.getCity().sendLetter(receipt);
 		letter.operation();
 	}
 

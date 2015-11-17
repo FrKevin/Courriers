@@ -2,8 +2,8 @@ package fr.univ_lille1.fil.coo.courriers.letters.contents;
 
 public class ReceiptContent extends TextContent{
 
-	public ReceiptContent(String receiver, String contentLetter) {
-		super(receiver, contentLetter);
+	public ReceiptContent(String contentLetter) {
+		super(contentLetter);
 	}
 
 	@Override

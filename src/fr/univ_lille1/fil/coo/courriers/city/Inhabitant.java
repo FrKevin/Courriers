@@ -29,8 +29,21 @@ public class Inhabitant {
 		return bankAccount.debit(amount);
 	}
 
-
 	public String getName() {
 		return name;
 	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public BankAccount getBankAccount() {
+		return bankAccount;
+	}
+
+	public Postbox getPostbox() {
+		return postbox;
+	}
+	
+	
 }

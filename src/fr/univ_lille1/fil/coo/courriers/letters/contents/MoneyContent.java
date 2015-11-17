@@ -3,8 +3,7 @@ package fr.univ_lille1.fil.coo.courriers.letters.contents;
 public class MoneyContent extends Content {
 	protected double money;
 	
-	public MoneyContent(String receiver, double money){
-		super(receiver);
+	public MoneyContent(double money){
 		setMoney(money);
 	}
 	
@@ -20,7 +19,7 @@ public class MoneyContent extends Content {
 
 	@Override
 	public String toString() {
-		return "content is a money content ("+money+"€) to "+ receiver;
+		return "content is a money content ("+money+"€) to ";
 	}
 	
 	
