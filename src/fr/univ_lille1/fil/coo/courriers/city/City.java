@@ -22,6 +22,9 @@ public class City {
 	}
 	
 	public void sendLetter(Letter<?> letter){
+		if(!letter.getSender().debit(letter.getCost())){
+			throw new IllegalArgumentException("The sender have negative solde account.");
+		}
 		postbox.addLetter(letter);
 	}
 	
