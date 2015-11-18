@@ -7,6 +7,7 @@ public abstract class DecoratorLetter extends Letter {
 
 	protected Letter<?> letter;
 
+	@SuppressWarnings("unchecked")
 	public DecoratorLetter(double cost, Letter<?> letter) {
 		super(cost);
 		this.letter = letter;

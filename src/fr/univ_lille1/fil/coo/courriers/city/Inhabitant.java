@@ -45,5 +45,8 @@ public class Inhabitant {
 		return postbox;
 	}
 	
+	public void showLetters() {
+		// TODO 
+	}
 	
 }

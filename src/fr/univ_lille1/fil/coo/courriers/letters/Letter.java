@@ -50,7 +50,7 @@ public abstract class Letter<T extends Content> {
 	
 
 	public void operation(){
-		if(isNullForContent() && isNullForReceiver() && isNullForSender() == false){
+		if(!(isNullForContent() && isNullForReceiver() && isNullForSender())){
 			action();
 		}
 	}

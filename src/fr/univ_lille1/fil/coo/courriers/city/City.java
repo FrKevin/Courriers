@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
-import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 
 public class City {
 	
@@ -30,7 +29,7 @@ public class City {
 		int index = -1;
 		Letter<?> l;
 		while(postbox.isEmpty()){
-			l = postbox.firstLetter();
+			l = postbox.takeFirstLetter();
 			index = inhabitants.indexOf(l.getReceiver());
 			if(index > -1){
 				inhabitants.get(index).getPostbox().addLetter(l);
@@ -38,6 +37,10 @@ public class City {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return getName();
+	}
 	public String getName() {
 		return name;
 	}

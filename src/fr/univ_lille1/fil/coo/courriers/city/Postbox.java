@@ -21,7 +21,7 @@ public class Postbox {
 		return letters;
 	}
 
-	public Letter<?> firstLetter() {
+	public Letter<?> takeFirstLetter() {
 		return letters.poll();
 	}
 	
