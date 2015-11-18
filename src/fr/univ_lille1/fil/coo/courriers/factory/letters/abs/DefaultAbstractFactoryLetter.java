@@ -1,7 +1,7 @@
 package fr.univ_lille1.fil.coo.courriers.factory.letters.abs;
 
+import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.DefaultFactoryPrommisoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.FactoryPromissoryNote;
-import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.RandomFactoryPrommisoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.DefaultFactorySimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.FactorySimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
@@ -13,7 +13,7 @@ public class DefaultAbstractFactoryLetter implements AbstractFactoryLetter{
 	protected FactoryPromissoryNote factoryPromissoryNote;
 
 	public DefaultAbstractFactoryLetter() {
-		this(new DefaultFactorySimpleLetter(), new RandomFactoryPrommisoryNote());
+		this(new DefaultFactorySimpleLetter(), new DefaultFactoryPrommisoryNote());
 	}
 	
 	public DefaultAbstractFactoryLetter(FactorySimpleLetter factorySimpleLetter, FactoryPromissoryNote factoryPromissoryNote) {
