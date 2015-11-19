@@ -16,12 +16,11 @@ public class CompositeContent extends Content{
 	
 	@Override
 	public String toString() {
-		//http://kaioa.com/node/59
+		//http://kaioa.com/node/59 for performance of StringBuilder
 		StringBuilder allToString = new StringBuilder();
 		for(Content c : contents){
 			allToString.append(c.toString());
 		}
 		return allToString.toString();
 	}
-
 }

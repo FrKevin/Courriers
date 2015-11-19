@@ -8,4 +8,5 @@ public interface AbstractFactoryLetter {
 	public PromissoryNote createPromissoryNote();
 
 	public SimpleLetter createSimpleLetter();
+		
 }
