@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.factory;
+package fr.univ_lille1.fil.coo.courriers.factory.inhabitant;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
 import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;

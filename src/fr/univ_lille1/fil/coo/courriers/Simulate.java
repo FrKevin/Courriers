@@ -6,7 +6,7 @@ import java.util.Random;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
 import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
-import fr.univ_lille1.fil.coo.courriers.factory.FactoryCity;
+import fr.univ_lille1.fil.coo.courriers.factory.city.FactoryCity;
 
 public class Simulate {
 

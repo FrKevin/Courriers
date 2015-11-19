@@ -6,7 +6,7 @@ import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 
 public abstract class DecoratorLetter<L extends Letter<?> & Decorable> extends Letter<Content> {
 
-	protected L letter;
+	protected Letter<?> letter;
 
 	public DecoratorLetter(double cost, L letter) {
 		super(cost);

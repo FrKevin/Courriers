@@ -8,6 +8,7 @@ public class UrgentLetter<L extends Letter<?> & Decorable> extends DecoratorLett
 	
 	public UrgentLetter(L letter) {
 		super(letter.getCost()*EXTRA_COST, letter);
+
 	}
 
 	@Override
