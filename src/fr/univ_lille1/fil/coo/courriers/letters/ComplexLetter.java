@@ -17,4 +17,10 @@ public class ComplexLetter extends Letter<CompositeContent>{
 	protected void action() {
 		//TODO Not yet implemented
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

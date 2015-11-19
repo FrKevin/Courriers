@@ -1,31 +1,67 @@
 package fr.univ_lille1.fil.coo.courriers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
+import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 import fr.univ_lille1.fil.coo.courriers.factory.city.FactoryCity;
 
 public class Simulate {
 
-	private int nbDay;
-	private int currentDay = 0;
+	protected int currentDay = 1;
+	protected int nbDay;
+	protected int nbRandomInhabitant; 
 	
-	private City city;
+	private static final Random RAND = new Random();
 	
-	public Simulate(int nbDay, FactoryCity factoryCity) {
-		this.nbDay = nbDay;
-		this.city = factoryCity.createCity();
+	public static final int DEFAULT_NB_RANDOM_INHABITANT = 5;
+	public static final int DEFAULT_NB_DAY = 6;
+
+	protected City city;
+	
+	public Simulate(FactoryCity factoryCity) {
+		this(DEFAULT_NB_DAY, DEFAULT_NB_RANDOM_INHABITANT, factoryCity);
 	}
 	
+	public Simulate(int nbDay, int nbRandomInhabitant, FactoryCity factoryCity) {
+		this.nbDay = nbDay;
+		this.nbRandomInhabitant = nbRandomInhabitant; 
+		this.city = factoryCity.createCity();
+	}
+		
 	public void run() {
-		// TODO Implemenation
-		while(true) {
+		boolean isFirstDay = true;
+		List<Inhabitant> randomInhabitants;
+		while (currentDay < nbDay) {
+			messageForNDay();
+			randomInhabitants = getRandomInhabitants(nbRandomInhabitant);
 			
 		}
 	}
 	
+	protected String messageForNDay() {
+		return "**********************************************\nDay" + currentDay;
+	}
+	
+	protected List<Inhabitant> getRandomInhabitants(int nbInhabitants) {
+		if (nbInhabitants > city.getInhabitants().size()) {
+			return new ArrayList<>(city.getInhabitants());
+		}
+		List<Inhabitant> randomInhabitant = new ArrayList<>();
+		int i = 0;
+		int idRandomInhabitants;
+		while (i  < nbInhabitants) {
+			idRandomInhabitants = RAND.nextInt(nbInhabitants);
+			if (!randomInhabitant.contains(city.getInhabitants().get(idRandomInhabitants))) {
+				randomInhabitant.add(city.getInhabitants().get(idRandomInhabitants));
+				++i;
+			}
+		}
+		return randomInhabitant;
+	}
+			
 	public int getNbDay() {
 		return nbDay;
 	}

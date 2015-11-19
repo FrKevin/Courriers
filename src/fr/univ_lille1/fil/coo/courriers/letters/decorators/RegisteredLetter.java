@@ -4,10 +4,10 @@ import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
-public class RegisteredLetter extends DecoratorLetter {
+public class RegisteredLetter<L extends Letter<?> & Decorable> extends DecoratorLetter<L> {
 	protected static final double EXTRA_COST = 15;
 	
-	public RegisteredLetter(Letter<?> letter) {
+	public RegisteredLetter(L letter) {
 		super(letter.getCost()+EXTRA_COST, letter);
 	}
 

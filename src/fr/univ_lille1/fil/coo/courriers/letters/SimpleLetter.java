@@ -2,8 +2,9 @@ package fr.univ_lille1.fil.coo.courriers.letters;
 
 import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
+import fr.univ_lille1.fil.coo.courriers.letters.decorators.Decorable;
 
-public class SimpleLetter extends Letter<TextContent> {
+public class SimpleLetter extends Letter<TextContent> implements Decorable {
 	private static final int  COST_SIMPLE_LETTER = 1;
 	
 	public SimpleLetter(TextContent textContent){
@@ -21,6 +22,12 @@ public class SimpleLetter extends Letter<TextContent> {
 	@Override
 	protected void action() {
 		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Stub de la méthode généré automatiquement
+		return null;
 	}
 
 }

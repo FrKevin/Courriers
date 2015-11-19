@@ -2,7 +2,7 @@ package fr.univ_lille1.fil.coo.courriers.city;
 
 public class Inhabitant {
 
-	protected String name;
+	String name;
 	protected City city;
 	protected BankAccount bankAccount;
 	protected Postbox postbox;

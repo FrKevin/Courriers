@@ -26,6 +26,7 @@ public class City {
 			throw new IllegalArgumentException("The sender have negative solde account.");
 		}
 		postbox.addLetter(letter);
+		System.out.println(messageSender(letter));
 	}
 	
 	public void distributeLetters(){
@@ -38,6 +39,11 @@ public class City {
 				inhabitants.get(index).getPostbox().addLetter(l);
 			}
 		}
+	}
+	
+	protected String messageSender(Letter<?> letter) {
+		return "-> " + letter.getSender().getName() + "mails " + letter.toString() + " to" + letter.getReceiver().getName() + 
+						" for a cost of " + letter.getCost() + " euros";
 	}
 
 	@Override
