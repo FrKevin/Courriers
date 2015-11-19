@@ -1,7 +1,13 @@
 package fr.univ_lille1.fil.coo.courriers;
 
+import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
+import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
+import fr.univ_lille1.fil.coo.courriers.letters.decorators.RegisteredLetter;
+
 public class Main {
 	public static void main(String[] args) {
+		RegisteredLetter<PromissoryNote> rl = new RegisteredLetter<>(new PromissoryNote(new MoneyContent(10)));
+		System.out.println(rl.getCost());
 		//new Simulate(6, new DefaultFactoryCity("Lille")).run();  
 		
 		/* // Petit Test ------------------

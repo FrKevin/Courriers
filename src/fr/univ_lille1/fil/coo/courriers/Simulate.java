@@ -61,8 +61,7 @@ public class Simulate {
 		}
 		return randomInhabitant;
 	}
-		
-	
+			
 	public int getNbDay() {
 		return nbDay;
 	}

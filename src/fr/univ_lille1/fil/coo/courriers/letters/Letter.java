@@ -52,8 +52,16 @@ public abstract class Letter<T extends Content> {
 	public void operation(){
 		if(!(isNullForContent() && isNullForReceiver() && isNullForSender())){
 			action();
+			messageReceiver();
 		}
 	}
+
+	protected String messageReceiver() {
+		return "<- " + getReceiver().getName() + " receives " + toString() + " from " + getSender().getName();
+	}
+	
+	@Override
+	public abstract String toString();
 	
 	protected abstract void action();
 	
