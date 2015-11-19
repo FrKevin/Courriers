@@ -41,6 +41,10 @@ public class City {
 		}
 	}
 	
+	public boolean hasMailToDistribute() {
+		return !postbox.isEmpty();
+	}
+	
 	protected String messageSender(Letter<?> letter) {
 		return "-> " + letter.getSender().getName() + "mails " + letter.toString() + " to" + letter.getReceiver().getName() + 
 						" for a cost of " + letter.getCost() + " euros";

@@ -46,7 +46,9 @@ public class Inhabitant {
 	}
 	
 	public void showLetters() {
-		// TODO 
+		while(!postbox.isEmpty()) {
+			postbox.takeFirstLetter().operation();
+		}
 	}
 	
 }
