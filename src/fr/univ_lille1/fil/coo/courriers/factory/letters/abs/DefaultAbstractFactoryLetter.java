@@ -1,6 +1,5 @@
 package fr.univ_lille1.fil.coo.courriers.factory.letters.abs;
 
-
 import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.DefaultFactoryPrommisoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.FactoryPromissoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.DefaultFactorySimpleLetter;
@@ -31,5 +30,4 @@ public class DefaultAbstractFactoryLetter implements AbstractFactoryLetter{
 	public SimpleLetter createSimpleLetter() {
 		return factorySimpleLetter.createSimpleLetter();
 	}
-
 }
