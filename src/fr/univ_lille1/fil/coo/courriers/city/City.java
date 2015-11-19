@@ -5,22 +5,37 @@ import java.util.List;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 
+/**
+ * The class represent a city containing inhabitants
+ */
 public class City {
 	
 	protected String name;
 	protected List<Inhabitant> inhabitants;
 	protected Postbox postbox; 
 	
+	/**
+	 * Construct a city
+	 * @param name The name of the city
+	 */
 	public City(String name){
 		this.name = name;
 		this.inhabitants = new ArrayList<>();
 		this.postbox = new Postbox();
 	}
 
+	/**
+	 * Add inhabitant in the city
+	 * @param inHabitant inhabitant to add to the city
+	 */
 	public void addInhabitants(Inhabitant inHabitant){
 		inhabitants.add(inHabitant);
 	}
 	
+	/**
+	 * Add letter to the postbox of the city
+	 * @param letter the letter to send to the postbox
+	 */
 	public void sendLetter(Letter<?> letter){
 		if(!letter.getSender().debit(letter.getCost())){
 			throw new IllegalArgumentException("The sender have negative solde account.");
@@ -29,6 +44,9 @@ public class City {
 		System.out.println(messageSender(letter));
 	}
 	
+	/**
+	 * Distribute letter available in the postbox
+	 */
 	public void distributeLetters(){
 		int index = -1;
 		Letter<?> l;
@@ -41,6 +59,11 @@ public class City {
 		}
 	}
 	
+	/**
+	 * Display the name of the sender, the name of the receiver and the cost of the letter
+	 * @param letter The letter where we want to know informations
+	 * @return the informations of the letter
+	 */
 	protected String messageSender(Letter<?> letter) {
 		return "-> " + letter.getSender().getName() + "mails " + letter.toString() + " to" + letter.getReceiver().getName() + 
 						" for a cost of " + letter.getCost() + " euros";
@@ -50,14 +73,26 @@ public class City {
 	public String toString() {
 		return getName();
 	}
+	/**
+	 * Return the name of the city
+	 * @return The name of the city
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Return the list of the inhabitant
+	 * @return the list of the inhabitant
+	 */
 	public List<Inhabitant> getInhabitants() {
 		return inhabitants;
 	}
 
+	/**
+	 * Return the postbox
+	 * @return the postbox
+	 */
 	public Postbox getPostbox() {
 		return postbox;
 	}
