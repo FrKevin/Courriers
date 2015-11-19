@@ -11,4 +11,5 @@ public interface AbstractFactoryContent {
 	public MoneyContent createMoneyContent();
 	
 	public CompositeContent createCompositeContent();
+	
 }

@@ -60,6 +60,14 @@ public class City {
 	}
 	
 	/**
+	 * Verify if there is some letters to distribute
+	 * @return True if there is letters, false in the other case
+	 */
+	public boolean hasMailToDistribute() {
+		return !postbox.isEmpty();
+	}
+	
+	/**
 	 * Display the name of the sender, the name of the receiver and the cost of the letter
 	 * @param letter The letter where we want to know informations
 	 * @return the informations of the letter
