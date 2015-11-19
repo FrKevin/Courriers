@@ -1,9 +1,12 @@
 package fr.univ_lille1.fil.coo.courriers.factory.letters.abs;
 
+import fr.univ_lille1.fil.coo.courriers.factory.letters.complexLetter.DefaultFactoryComplexLetter;
+import fr.univ_lille1.fil.coo.courriers.factory.letters.complexLetter.FactoryComplexLetter;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.DefaultFactoryPrommisoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.FactoryPromissoryNote;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.DefaultFactorySimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.FactorySimpleLetter;
+import fr.univ_lille1.fil.coo.courriers.letters.ComplexLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 
@@ -11,14 +14,16 @@ public class DefaultAbstractFactoryLetter implements AbstractFactoryLetter{
 
 	protected FactorySimpleLetter factorySimpleLetter;
 	protected FactoryPromissoryNote factoryPromissoryNote;
-
+	protected FactoryComplexLetter factoryComplexLetter;
+	
 	public DefaultAbstractFactoryLetter() {
-		this(new DefaultFactorySimpleLetter(), new DefaultFactoryPrommisoryNote());
+		this(new DefaultFactorySimpleLetter(), new DefaultFactoryPrommisoryNote(), new DefaultFactoryComplexLetter());
 	}
 	
-	public DefaultAbstractFactoryLetter(FactorySimpleLetter factorySimpleLetter, FactoryPromissoryNote factoryPromissoryNote) {
+	public DefaultAbstractFactoryLetter(FactorySimpleLetter factorySimpleLetter, FactoryPromissoryNote factoryPromissoryNote, FactoryComplexLetter factoryComplexLetter) {
 		this.factorySimpleLetter = factorySimpleLetter;
 		this.factoryPromissoryNote = factoryPromissoryNote;
+		this.factoryComplexLetter = factoryComplexLetter;
 	}
 	
 	@Override
@@ -29,5 +34,10 @@ public class DefaultAbstractFactoryLetter implements AbstractFactoryLetter{
 	@Override
 	public SimpleLetter createSimpleLetter() {
 		return factorySimpleLetter.createSimpleLetter();
+	}
+
+	@Override
+	public ComplexLetter createComplexLetter() {
+		return factoryComplexLetter.createComplexLetter();
 	}
 }

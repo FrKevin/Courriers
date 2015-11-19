@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
-import fr.univ_lille1.fil.coo.courriers.factory.FactoryCity;
+import fr.univ_lille1.fil.coo.courriers.factory.city.FactoryCity;
 
 public class Simulate {
 

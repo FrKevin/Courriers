@@ -1,6 +1,8 @@
-package fr.univ_lille1.fil.coo.courriers.factory;
+package fr.univ_lille1.fil.coo.courriers.factory.city;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
+import fr.univ_lille1.fil.coo.courriers.factory.inhabitant.DefaultFactoryInhabitant;
+import fr.univ_lille1.fil.coo.courriers.factory.inhabitant.FactoryInhabitant;
 
 public class DefaultFactoryCity implements FactoryCity {
 	
