@@ -15,14 +15,7 @@ public class PromissoryNote extends Letter<MoneyContent> {
 	public PromissoryNote(Inhabitant sender, Inhabitant receiver,MoneyContent moneyContent){
 		super(42, sender, receiver, moneyContent);
 		setCost(COEFF_COST * content.getMoney() +FIX_COST);
-		isPossible();
-	}
-	
-	protected void isPossible(){
-		if(!isNullForSender() && !sender.debit(this.getCost())){
-			throw new IllegalArgumentException("The sender have negative solde account.");
-		}
-	}
+	}	
 	
 	@Override
 	protected void action() {

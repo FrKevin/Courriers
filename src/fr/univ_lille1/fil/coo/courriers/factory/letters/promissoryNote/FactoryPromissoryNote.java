@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.factory.letters;
+package fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote;
 
 import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
 
