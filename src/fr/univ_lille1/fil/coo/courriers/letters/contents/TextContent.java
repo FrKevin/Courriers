@@ -9,7 +9,7 @@ public class TextContent extends Content {
 	
 	@Override
 	public String toString(){
-		return "content is a text content ("+ contentLetter +") to ";
+		return "content is a text content ("+ contentLetter +")";
 	}
 
 	public String getContentLetter() {

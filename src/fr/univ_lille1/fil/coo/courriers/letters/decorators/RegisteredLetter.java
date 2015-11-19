@@ -17,5 +17,10 @@ public class RegisteredLetter<L extends Letter<?> & Decorable> extends Decorator
 		receiver.getCity().sendLetter(receipt);
 		letter.operation();
 	}
+	
+	@Override
+	public String toString() {
+		return "a registered letter whose content is " + letter.toString();
+	}
 
 }

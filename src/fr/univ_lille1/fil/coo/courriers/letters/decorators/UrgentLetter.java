@@ -2,16 +2,21 @@ package fr.univ_lille1.fil.coo.courriers.letters.decorators;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 
-public class UrgentLetter extends DecoratorLetter {
+public class UrgentLetter<L extends Letter<?> & Decorable> extends DecoratorLetter<L> {
 	
-	protected static final double EXTRA_COST = 15;
+	protected static final double EXTRA_COST = 2;
 	
-	public UrgentLetter(Letter<?> letter) {
-		super(letter.getCost()*2, letter);
+	public UrgentLetter(L letter) {
+		super(letter.getCost()*EXTRA_COST, letter);
 	}
 
 	@Override
 	protected void action() {
 		letter.operation();
+	}
+	
+	@Override
+	public String toString() {
+		return "an urgent letter whose content is " + letter.getContent().toString();
 	}
 }

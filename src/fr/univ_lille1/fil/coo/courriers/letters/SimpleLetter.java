@@ -5,13 +5,13 @@ import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 import fr.univ_lille1.fil.coo.courriers.letters.decorators.Decorable;
 
 public class SimpleLetter extends Letter<TextContent> implements Decorable {
-	private static final int  COST_SIMPLE_LETTER = 1;
+	public static final int  COST_SIMPLE_LETTER = 1;
 	
 	public SimpleLetter(TextContent textContent){
 		this(COST_SIMPLE_LETTER, textContent);
 	}
 	
-	public SimpleLetter(double cost, TextContent  textContent) {
+	public SimpleLetter(double cost, TextContent textContent) {
 		super(cost, textContent);
 	}
 	
@@ -26,8 +26,7 @@ public class SimpleLetter extends Letter<TextContent> implements Decorable {
 
 	@Override
 	public String toString() {
-		// TODO Stub de la méthode généré automatiquement
-		return null;
+		return "a simple letter whose a content is" + content.toString();
 	}
 
 }

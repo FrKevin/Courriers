@@ -26,7 +26,7 @@ public class PromissoryNote extends Letter<MoneyContent> implements Decorable{
 	@Override
 	public String toString() {
 		// TODO Stub de la méthode généré automatiquement
-		return null;
+		return "a promissory letter letter whose content is " + content.toString();
 	}
 
 }

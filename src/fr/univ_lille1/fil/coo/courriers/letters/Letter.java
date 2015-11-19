@@ -52,7 +52,7 @@ public abstract class Letter<T extends Content> {
 	public void operation(){
 		if(!(isNullForContent() && isNullForReceiver() && isNullForSender())){
 			action();
-			messageReceiver();
+			System.out.println(messageReceiver());
 		}
 	}
 
