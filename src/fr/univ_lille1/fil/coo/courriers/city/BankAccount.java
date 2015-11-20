@@ -85,12 +85,14 @@ public class BankAccount {
 	protected void setOwner(Inhabitant owner) {
 		this.owner = owner;
 	}
+		
+	protected String messageForDebit(double amount) {
+		return "   - " +  UtilsCourriers.format(amount) + " euros are debited from " + getOwner() + " account whose balance is now " + UtilsCourriers.format(getAmount()) + " euros";
+	}
 	
 	protected String messageForCredit(double amount) {
-		return "- " + UtilsCourriers.format(amount) + " euros are credited from " + getOwner() + " account whose a balance is now " + UtilsCourriers.format(getAmount()) + " euros";
+		return "   + " + getOwner() + " account is credited with " + UtilsCourriers.format(amount) + " euros; its balance is now " + UtilsCourriers.format(getAmount()) + " euros";
 	}
 	
-	protected String messageForDebit(double amount) {
-		return "+ " +  getOwner() + " account is debited with " + UtilsCourriers.format(amount) + " euros; its balance is now " + UtilsCourriers.format(getAmount()) + " euros";
-	}
+
 }
