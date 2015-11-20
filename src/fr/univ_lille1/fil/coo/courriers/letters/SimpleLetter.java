@@ -39,9 +39,7 @@ public class SimpleLetter extends Letter<TextContent> implements Decorable {
 	}
 	
 	@Override
-	protected void action() {
-		
-	}
+	protected void action() {}
 
 	@Override
 	public String toString() {
