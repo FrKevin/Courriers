@@ -27,9 +27,7 @@ public class ComplexLetter extends Letter<CompositeContent>{
 	}
 
 	@Override
-	protected void action() {
-		//TODO Not yet implemented
-	}
+	protected void action() {  }
 
 	@Override
 	public String toString() {

@@ -4,7 +4,7 @@ import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.ReceiptLetter;
 
 public class RegisteredLetter<L extends Letter<?> & Decorable> extends DecoratorLetter<L> {
-	protected static final double EXTRA_COST = 15;
+	public static final double EXTRA_COST = 15;
 	
 	/**
 	 * Generate a decorator for a {@link Letter} the make it registered

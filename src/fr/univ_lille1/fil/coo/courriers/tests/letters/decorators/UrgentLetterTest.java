@@ -6,10 +6,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
+import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
+import fr.univ_lille1.fil.coo.courriers.letters.decorators.UrgentLetter;
+
 public class UrgentLetterTest {
+	
+	UrgentLetter<?> l;
 
 	@Before
 	public void setUp() throws Exception {
+		l = new UrgentLetter<SimpleLetter>(new SimpleLetter(new TextContent("")));
 	}
 
 	@After
@@ -18,12 +25,16 @@ public class UrgentLetterTest {
 
 	@Test
 	public void testGetCost() {
-		fail("Not yet implemented");
+		assertEquals(
+				UrgentLetter.EXTRA_COST * new SimpleLetter(new TextContent("")).getCost(),
+				l.getCost(),
+				0.001);
 	}
 
 	@Test
 	public void testUrgentLetter() {
-		fail("Not yet implemented");
+		new UrgentLetter<SimpleLetter>(new SimpleLetter(new TextContent("")));
+		
 	}
 
 }
