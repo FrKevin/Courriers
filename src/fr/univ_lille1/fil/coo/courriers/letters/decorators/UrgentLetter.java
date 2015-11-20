@@ -11,10 +11,15 @@ public class UrgentLetter<L extends Letter<?> & Decorable> extends DecoratorLett
 	 * @param letter The type of letter
 	 */
 	public UrgentLetter(L letter) {
-		super(letter.getCost()*EXTRA_COST, letter);
+		super(EXTRA_COST, letter);
 
 	}
 
+	@Override
+	public double getCost() {
+		return super.getCost() * letter.getCost();
+	}
+	
 	@Override
 	protected void action() {
 		letter.operation();

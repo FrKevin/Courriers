@@ -34,7 +34,7 @@ public class MoneyContent extends Content {
 
 	@Override
 	public String toString() {
-		return "content is a money content ("+money+"€)";
+		return "a money content ("+money+"€)";
 	}
 	
 	

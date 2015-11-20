@@ -2,7 +2,6 @@ package fr.univ_lille1.fil.coo.courriers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import fr.univ_lille1.fil.coo.courriers.city.City;
 import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
@@ -10,16 +9,18 @@ import fr.univ_lille1.fil.coo.courriers.factory.city.FactoryCity;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.FactoryLetter;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.RandomFactoryLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
+import fr.univ_lille1.fil.coo.courriers.utils.UtilsCourriers;
 
 public class Simulate {
 
 	protected int currentDay = 1;
 	protected int nbDay;
-	protected int maxNbRandomInhabitant; 
 	
-	private static final Random RAND = new Random();
-	
-	public static final int DEFAULT_MAX_NB_RANDOM_INHABITANT = 5;
+	protected int minNbRandomInhabitant;
+	protected int maxNbRandomInhabitant;
+
+	public static final int DEFAULT_MIN_NB_RANDOM_INHABITANT = 3;
+	public static final int DEFAULT_MAX_NB_RANDOM_INHABITANT = 7;
 	public static final int DEFAULT_NB_DAY = 6;
 	
 	protected int nbRandomInhabitants;
@@ -31,28 +32,40 @@ public class Simulate {
 	private boolean isFirstDay;
 	
 	public Simulate(FactoryCity factoryCity) {
-		this(DEFAULT_NB_DAY, DEFAULT_MAX_NB_RANDOM_INHABITANT, factoryCity);
+		this(DEFAULT_NB_DAY, DEFAULT_MIN_NB_RANDOM_INHABITANT, DEFAULT_MAX_NB_RANDOM_INHABITANT, factoryCity);
 	}
 	
-	public Simulate(int nbDay, int nbRandomInhabitant, FactoryCity factoryCity) {
+	public Simulate(int nbDay, int minNbRandomInhabitant, int maxNbRandomInhabitant, FactoryCity factoryCity) {
 		this.nbDay = nbDay;
-		this.maxNbRandomInhabitant = nbRandomInhabitant; 
+		this.minNbRandomInhabitant = minNbRandomInhabitant;
+		this.maxNbRandomInhabitant = maxNbRandomInhabitant; 
 		this.city = factoryCity.createCity();
 	}
-		
+	
+	public int getNbDay() {
+		return nbDay;
+	}
+
+	public int getCurrentDay() {
+		return currentDay;
+	}
+	
 	public void run() {
 		isFirstDay = true;
 		while (currentDay < nbDay || city.hasMailToDistribute()) {
-			messageForNDay();
-			initRandomInhabitants();
-			sendInhabitants();
+			System.out.println(messageForNDay());
+			distributeLetters();
+			if (currentDay < nbDay) {
+				initRandomInhabitants();
+				sendInhabitants();
+			}
 			receiveInhabitants();
 			nextDay();
 		}
 	}
 	
 	protected void initRandomInhabitants() {
-		nbRandomInhabitants = RAND.nextInt(maxNbRandomInhabitant);
+		nbRandomInhabitants = UtilsCourriers.randInt(minNbRandomInhabitant, maxNbRandomInhabitant);
 		randomSenderInhabitants = new ArrayList<>();
 		randomReceiverInhabitants = new ArrayList<>();
 		for (int i = 0; i < nbRandomInhabitants; i++) {
@@ -83,31 +96,32 @@ public class Simulate {
 		}
 	}
 	
+	protected void distributeLetters() {
+		if(isFirstDay) {
+			return;
+		}
+		city.distributeLetters();
+	}
+	
 	protected String messageForNDay() {
-		return "**********************************************\nDay" + currentDay;
+		return "**********************************************\nDay " + currentDay;
 	}
 
 	protected Inhabitant getRandomReceiverInhabitant(Inhabitant sender) {
 		Inhabitant receiver = null;
 		do {
-			receiver = city.getInhabitants().get(RAND.nextInt(city.getInhabitants().size()));
+			receiver = city.getInhabitants().get(UtilsCourriers.RAND.nextInt(city.getInhabitants().size()));
 		} while (receiver.equals(sender));
 		return receiver;
 	}
 	
 	protected Inhabitant getRandomSenderInhabitant() {
-		return city.getInhabitants().get(RAND.nextInt(city.getInhabitants().size()));
+		return city.getInhabitants().get(UtilsCourriers.RAND.nextInt(city.getInhabitants().size()));
 	}
 	
 	protected void nextDay() {
 		++currentDay;
+		isFirstDay = false;
 	}
-				
-	public int getNbDay() {
-		return nbDay;
-	}
-
-	public int getCurrentDay() {
-		return currentDay;
-	}
+	
 }

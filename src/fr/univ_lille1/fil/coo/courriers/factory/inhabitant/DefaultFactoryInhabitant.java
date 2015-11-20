@@ -9,15 +9,19 @@ import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 public class DefaultFactoryInhabitant implements FactoryInhabitant {
 	
 	protected City city;
+	protected double amount;
+	
 	private int idInhabitant = 0;
 	
+	public static final double DEFAULT_AMOUNT = 1000;
 	
-	public DefaultFactoryInhabitant(City city){
+	public DefaultFactoryInhabitant(City city, double amount){
 		setCity(city);
+		this.amount = amount;
 	}
 	
 	public DefaultFactoryInhabitant() {
-		this(null);
+		this(null, DEFAULT_AMOUNT);
 	}
 	
 	public void resetId() {
@@ -34,7 +38,7 @@ public class DefaultFactoryInhabitant implements FactoryInhabitant {
 		
 	@Override
 	public Inhabitant createInhabitant() {
-		return new Inhabitant("Inhabitant-" + idInhabitant, city);
+		return new Inhabitant("Inhabitant-" + idInhabitant++, city, amount);
 	
 	}
 }

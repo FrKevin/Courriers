@@ -91,4 +91,9 @@ public class Inhabitant {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return getName();
+	}
+	
 }

@@ -34,7 +34,6 @@ public class DefaultFactoryCity implements FactoryCity {
 	
 	public void setFactoryInhabitant(FactoryInhabitant factoryInhabitant) {
 		this.factoryInhabitant = factoryInhabitant;
-		linkedCity();
 	}
 	
 	protected void linkedCity() {
@@ -49,7 +48,6 @@ public class DefaultFactoryCity implements FactoryCity {
 		this.nameCity = nameCity;
 	}
 	
-
 	protected String messageCreateCity() {
 		return "Creating "+ nameCity + " city.";
 	}
@@ -61,6 +59,7 @@ public class DefaultFactoryCity implements FactoryCity {
 	@Override
 	public City createCity() {
 		city = new City(nameCity);
+		linkedCity();
 		System.out.println(messageCreateCity());
 		for(int i=0; i < nbHabitant; ++i) {
 			city.addInhabitants(factoryInhabitant.createInhabitant());

@@ -34,13 +34,15 @@ public class PromissoryNote extends Letter<MoneyContent> implements Decorable{
 	
 	@Override
 	protected void action() {
-		receiver.credit(this.content.getMoney());
+		getReceiver().credit(getContent().getMoney());
+		ThanksLetter thanksLetter = new ThanksLetter(this);
+		getReceiver().getCity().sendLetter(thanksLetter);
 	}
 
 	@Override
 	public String toString() {
 		// TODO Stub de la méthode généré automatiquement
-		return "a promissory letter letter whose content is " + content.toString();
+		return "a promissory letter whose content is " + content.toString();
 	}
 
 }

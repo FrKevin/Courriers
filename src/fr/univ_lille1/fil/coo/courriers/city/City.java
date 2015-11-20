@@ -50,9 +50,10 @@ public class City {
 	public void distributeLetters(){
 		int index = -1;
 		Letter<?> l;
-		while(postbox.isEmpty()){
+		while(!postbox.isEmpty()){
 			l = postbox.takeFirstLetter();
 			index = inhabitants.indexOf(l.getReceiver());
+
 			if(index > -1){
 				inhabitants.get(index).getPostbox().addLetter(l);
 			}
@@ -73,7 +74,7 @@ public class City {
 	 * @return the informations of the letter
 	 */
 	protected String messageSender(Letter<?> letter) {
-		return "-> " + letter.getSender().getName() + "mails " + letter.toString() + " to" + letter.getReceiver().getName() + 
+		return "-> " + letter.getSender().getName() + " mails " + letter.toString() + " to " + letter.getReceiver().getName() + 
 						" for a cost of " + letter.getCost() + " euros";
 	}
 

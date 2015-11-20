@@ -1,8 +1,7 @@
 package fr.univ_lille1.fil.coo.courriers.letters.decorators;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
-import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
-import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
+import fr.univ_lille1.fil.coo.courriers.letters.ReceiptLetter;
 
 public class RegisteredLetter<L extends Letter<?> & Decorable> extends DecoratorLetter<L> {
 	protected static final double EXTRA_COST = 15;
@@ -12,14 +11,19 @@ public class RegisteredLetter<L extends Letter<?> & Decorable> extends Decorator
 	 * @param letter The type of letter
 	 */
 	public RegisteredLetter(L letter) {
-		super(letter.getCost()+EXTRA_COST, letter);
+		super(EXTRA_COST, letter);
 	}
 
 	@Override
 	protected void action() {
-		SimpleLetter receipt = new SimpleLetter(new TextContent(letter.getContent().toString()));
-		receiver.getCity().sendLetter(receipt);
+		ReceiptLetter receipt = new ReceiptLetter(this);
+		getReceiver().getCity().sendLetter(receipt);
 		letter.operation();
+	}
+	
+	@Override
+	public double getCost() {
+		return super.getCost() + letter.getCost();
 	}
 	
 	@Override
