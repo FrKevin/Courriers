@@ -52,7 +52,7 @@ public abstract class Letter<T extends Content> {
 	 * @return {@link NullPointerException} if there is no content, false in the other case
 	 */
 	protected boolean isNullForContent(){
-		if(content == null){
+		if(getContent() == null){
 			throw new NullPointerException("The content is null.");
 		}
 		return false;
@@ -63,7 +63,7 @@ public abstract class Letter<T extends Content> {
 	 * @return {@link NullPointerException} if there is no receiver, false in the other case
 	 */
 	protected boolean isNullForReceiver(){
-		if(receiver == null){
+		if(getReceiver() == null){
 			throw new NullPointerException("The receiver is null.");
 		}
 		return false;
@@ -74,7 +74,7 @@ public abstract class Letter<T extends Content> {
 	 * @return {@link NullPointerException} if there is no sender, false in the other case
 	 */
 	protected boolean isNullForSender(){
-		if(sender == null){
+		if(getSender() == null){
 			throw new NullPointerException("The sender is null.");
 		}
 		return false;
@@ -86,8 +86,8 @@ public abstract class Letter<T extends Content> {
 	 */
 	public void operation(){
 		if(!(isNullForContent() && isNullForReceiver() && isNullForSender())){
-			action();
 			System.out.println(messageReceiver());
+			action();
 		}
 	}
 	

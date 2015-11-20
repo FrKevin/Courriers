@@ -29,8 +29,9 @@ public class MoneyContent extends Content {
 	 * @param money The amount of money to set
 	 */
 	public void setMoney(double money) {
-		if( money < 0)
+		if( money < 0){
 			throw new IllegalArgumentException("The money is negatif.");
+		}
 		this.money = money;
 	}
 

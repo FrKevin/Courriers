@@ -34,8 +34,8 @@ public class PromissoryNote extends Letter<MoneyContent> implements Decorable{
 	
 	@Override
 	protected void action() {
-		getSender().debit(getContent().getMoney());
-		getReceiver().credit(getContent().getMoney());
+		getSender().debitWithMessage(getContent().getMoney());
+		getReceiver().creditWithMessage(getContent().getMoney());
 		ThanksLetter thanksLetter = new ThanksLetter(this);
 		getReceiver().getCity().sendLetter(thanksLetter);
 	}

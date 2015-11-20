@@ -13,7 +13,10 @@ public class RandomFactoryLetter implements FactoryLetter {
 	
 	public static final int RATIO_PROMISSORY_NOTE = 2;
 	public static final int RATIO_SIMPLE_LETTER = 10;
-	public static final int RATIO_GLOBAL = 10;
+	public static final int RATIO_REGISTERED_LETTER = 3;
+	public static final int RATIO_URGENT_LETTER = 3;
+
+	public static final int RATIO_GLOBAL = RATIO_PROMISSORY_NOTE + RATIO_SIMPLE_LETTER + RATIO_URGENT_LETTER + RATIO_REGISTERED_LETTER ;
 
 
 	private AbstractFactoryLetter abstractFactoryLetter;
@@ -36,9 +39,16 @@ public class RandomFactoryLetter implements FactoryLetter {
 
 	@Override
 	public Letter<?> createLetter() {
-		return (UtilsCourriers.RAND.nextInt(RATIO_GLOBAL) <= RATIO_PROMISSORY_NOTE) ? abstractFactoryLetter.createPromissoryNote() : abstractFactoryLetter.createSimpleLetter();
+		int nbRandom = UtilsCourriers.RAND.nextInt(RATIO_GLOBAL);
+		if (nbRandom < RATIO_PROMISSORY_NOTE) {
+			return abstractFactoryLetter.createPromissoryNote();
+		}
+		if (nbRandom < RATIO_PROMISSORY_NOTE + RATIO_SIMPLE_LETTER) {
+			return abstractFactoryLetter.createSimpleLetter();
+		}
+		if (nbRandom < RATIO_PROMISSORY_NOTE + RATIO_SIMPLE_LETTER + RATIO_REGISTERED_LETTER) {
+			return abstractFactoryLetter.createRegisteredLetter();
+		}
+		return abstractFactoryLetter.createUrgentLetter();
 	}
-
-
-
 }
