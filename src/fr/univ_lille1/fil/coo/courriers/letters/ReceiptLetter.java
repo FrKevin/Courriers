@@ -23,6 +23,6 @@ public class ReceiptLetter extends SimpleLetter {
 	 * @param registeredLetter The {@link RegisteredLetter} used to the {@link ReceiptLetter}
 	 */
 	public ReceiptLetter(RegisteredLetter<?> registeredLetter) {
-		super(COST_SIMPLE_LETTER, registeredLetter.receiver, registeredLetter.sender, createTextContent(registeredLetter));
+		super(COST_SIMPLE_LETTER, registeredLetter.getReceiver(), registeredLetter.getSender(), createTextContent(registeredLetter));
 	}
 }

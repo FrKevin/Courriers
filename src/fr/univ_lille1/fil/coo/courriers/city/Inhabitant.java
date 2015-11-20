@@ -49,7 +49,15 @@ public class Inhabitant {
 	public boolean debit(double amount){
 		return bankAccount.debit(amount);
 	}
-
+	
+	public boolean debitWithMessage(double amount) {
+		return bankAccount.debitWithMessage(amount);
+	}
+	
+	public void creditWithMessage(double amount){
+		bankAccount.creditWithMessage(amount);
+	}
+	
 	/**
 	 * Return the name of the inhabitant
 	 * @return name of the inhabitant
