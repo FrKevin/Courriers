@@ -1,5 +1,7 @@
 package fr.univ_lille1.fil.coo.courriers.letters.contents;
 
+import fr.univ_lille1.fil.coo.courriers.utils.UtilsCourriers;
+
 /**
  * Money Content of a letter
  */
@@ -34,7 +36,7 @@ public class MoneyContent extends Content {
 
 	@Override
 	public String toString() {
-		return "a money content ("+money+"€)";
+		return "a money content (" + UtilsCourriers.format(getMoney()) + "€)";
 	}
 	
 	

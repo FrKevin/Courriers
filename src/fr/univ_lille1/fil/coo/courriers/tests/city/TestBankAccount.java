@@ -19,7 +19,7 @@ public class TestBankAccount {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		bankAccount = new BankAccount();
+		bankAccount = new BankAccount(null);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class TestBankAccount {
 
 	@Test
 	public void testBankAccountDouble() {
-		bankAccount = new BankAccount(VAL12);
+		bankAccount = new BankAccount(null, VAL12);
 		assertEquals(VAL12, bankAccount.getAmount(), 0.001);
 	}
 	

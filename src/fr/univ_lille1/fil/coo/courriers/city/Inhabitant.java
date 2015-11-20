@@ -29,7 +29,7 @@ public class Inhabitant {
 		super();
 		this.name = name;
 		this.city = city;
-		this.bankAccount = new BankAccount(amount);
+		this.bankAccount = new BankAccount(this, amount);
 		this.postbox = new Postbox();
 	}
 	

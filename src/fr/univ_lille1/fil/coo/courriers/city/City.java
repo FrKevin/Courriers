@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
+import fr.univ_lille1.fil.coo.courriers.utils.UtilsCourriers;
 
 /**
  * The class represent a city containing inhabitants
@@ -75,7 +76,7 @@ public class City {
 	 */
 	protected String messageSender(Letter<?> letter) {
 		return "-> " + letter.getSender().getName() + " mails " + letter.toString() + " to " + letter.getReceiver().getName() + 
-						" for a cost of " + letter.getCost() + " euros";
+						" for a cost of " + UtilsCourriers.format(letter.getCost()) + " euros";
 	}
 
 	@Override

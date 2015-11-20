@@ -6,7 +6,6 @@ public class UtilsCourriers {
 	
 	public static final Random RAND = new Random();
 	
-	
 	public static int randInt(int min, int max) {
 		return min + RAND.nextInt((max - min));
 	}
@@ -15,4 +14,7 @@ public class UtilsCourriers {
 		return min + (max - min) * RAND.nextDouble();
 	}
 	
+	public static String format(double value) {
+		return String.format("%.2f", value);
+	}
 }

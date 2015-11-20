@@ -29,11 +29,12 @@ public class PromissoryNote extends Letter<MoneyContent> implements Decorable{
 	 */
 	public PromissoryNote(Inhabitant sender, Inhabitant receiver,MoneyContent moneyContent){
 		super(42, sender, receiver, moneyContent);
-		setCost(COEFF_COST * content.getMoney() +FIX_COST);
+		setCost(COEFF_COST * content.getMoney() + FIX_COST);
 	}	
 	
 	@Override
 	protected void action() {
+		getSender().debit(getContent().getMoney());
 		getReceiver().credit(getContent().getMoney());
 		ThanksLetter thanksLetter = new ThanksLetter(this);
 		getReceiver().getCity().sendLetter(thanksLetter);

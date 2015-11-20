@@ -1,5 +1,7 @@
 package fr.univ_lille1.fil.coo.courriers.city;
 
+import fr.univ_lille1.fil.coo.courriers.utils.UtilsCourriers;
+
 /**
  * This class Represent a bank account of an {@link Inhabitant}
  *
@@ -7,20 +9,22 @@ package fr.univ_lille1.fil.coo.courriers.city;
 public class BankAccount {
 
 	private double amount;
+	private Inhabitant owner;
 	
 	/**
 	 * Initialize an account with 0€
 	 */
-	public BankAccount(){
-		this(0);
+	public BankAccount(Inhabitant owner){
+		this(owner, 0);
 	}
 	
 	/**
 	 * Initialize an account with an amount defined
 	 * @param amount The amout of money of the account
 	 */
-	public BankAccount(double amount) {
+	public BankAccount(Inhabitant owner, double amount) {
 		this.amount = amount;
+		this.owner = owner;
 	}
 	
 	/**
@@ -40,6 +44,7 @@ public class BankAccount {
 	public boolean debit(double amount){
 		if(hasDebit(amount)){
 			this.amount -= amount;
+			System.out.println(messageForDebit(amount));
 			return true;
 		}
 		return false;
@@ -51,6 +56,7 @@ public class BankAccount {
 	 */
 	public void credit(double amount){
 		this.amount += amount;
+		System.out.println(messageForCredit(amount));
 	}
 	
 	/**
@@ -59,5 +65,21 @@ public class BankAccount {
 	 */
 	public double getAmount() {
 		return amount;
+	}
+	
+	public Inhabitant getOwner() {
+		return owner;
+	}
+	
+	protected void setOwner(Inhabitant owner) {
+		this.owner = owner;
+	}
+	
+	protected String messageForCredit(double amount) {
+		return "- " + UtilsCourriers.format(amount) + " euros are debited from " + getOwner() + " account whose a balance is now " + UtilsCourriers.format(getAmount()) + " euros";
+	}
+	
+	protected String messageForDebit(double amount) {
+		return "+ " +  getOwner() + " account is credited with " + UtilsCourriers.format(amount) + " euros; its balance is now " + UtilsCourriers.format(getAmount()) + " euros";
 	}
 }

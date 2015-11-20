@@ -51,6 +51,7 @@ public class Simulate {
 	}
 	
 	public void run() {
+		System.out.println(messageForNDayMail());
 		isFirstDay = true;
 		while (currentDay < nbDay || city.hasMailToDistribute()) {
 			System.out.println(messageForNDay());
@@ -62,6 +63,10 @@ public class Simulate {
 			receiveInhabitants();
 			nextDay();
 		}
+	}
+	
+	protected String messageForNDayMail() {
+		return "Mailing letters for " + nbDay + " days";
 	}
 	
 	protected void initRandomInhabitants() {
