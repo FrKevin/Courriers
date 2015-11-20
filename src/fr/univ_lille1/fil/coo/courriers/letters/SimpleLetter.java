@@ -43,7 +43,7 @@ public class SimpleLetter extends Letter<TextContent> implements Decorable {
 
 	@Override
 	public String toString() {
-		return "a simple letter whose a content is " + content.toString();
+		return "a simple letter whose content is " + content.toString();
 	}
 
 }

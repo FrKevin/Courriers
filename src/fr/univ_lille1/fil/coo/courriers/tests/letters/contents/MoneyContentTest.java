@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.tests.letters.content;
+package fr.univ_lille1.fil.coo.courriers.tests.letters.contents;
 
 import static org.junit.Assert.*;
 
@@ -11,14 +11,13 @@ import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
 public class MoneyContentTest {
 	
 	protected MoneyContent moneyContent;
-	public final static int GAINS = 10;
 	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		moneyContent = new MoneyContent(GAINS);
+		moneyContent = new MoneyContent(10);
 	}
 
 	/**
@@ -31,23 +30,21 @@ public class MoneyContentTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void MoneyContentWidthIllegalArgumentException(){
-		/* Supprime l'avertissement pour le compilateur  */
-		@SuppressWarnings("unused")
-		MoneyContent err = new MoneyContent(-1);
+		new MoneyContent(-1);
 	}
 	
 	@Test
 	public void testMoneyContent() {
-		assertTrue(moneyContent.getMoney() == GAINS);
+		assertEquals(10, moneyContent.getMoney(), 0.001);
+	}
+
+	public void testSetMoney() {
+		moneyContent.setMoney(2.45);
+		assertEquals(2.45, moneyContent.getMoney(), 0.001);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetMoneyWidthIllegalArgumentException() {
+	public void testSetMoneyException() {
 		moneyContent.setMoney(-10);
-	}
-	
-	public void testSetMoney() {
-		moneyContent.setMoney(GAINS + GAINS);
-		assertTrue(moneyContent.getMoney() == (GAINS+GAINS) );
 	}
 }

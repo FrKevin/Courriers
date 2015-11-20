@@ -44,7 +44,6 @@ public class BankAccount {
 	public boolean debit(double amount){
 		if(hasDebit(amount)){
 			this.amount -= amount;
-			System.out.println(messageForDebit(amount));
 			return true;
 		}
 		return false;
@@ -56,7 +55,19 @@ public class BankAccount {
 	 */
 	public void credit(double amount){
 		this.amount += amount;
+	}
+	
+	public void creditWithMessage(double amount) {
+		credit(amount);
 		System.out.println(messageForCredit(amount));
+	}
+	
+	public boolean debitWithMessage(double amount) {
+		boolean debitStatus = debit(amount);
+		if(debitStatus) {
+			System.out.println(messageForDebit(amount));
+		}
+		return debitStatus;
 	}
 	
 	/**
@@ -74,12 +85,14 @@ public class BankAccount {
 	protected void setOwner(Inhabitant owner) {
 		this.owner = owner;
 	}
+		
+	protected String messageForDebit(double amount) {
+		return "   - " +  UtilsCourriers.format(amount) + " euros are debited from " + getOwner() + " account whose balance is now " + UtilsCourriers.format(getAmount()) + " euros";
+	}
 	
 	protected String messageForCredit(double amount) {
-		return "- " + UtilsCourriers.format(amount) + " euros are debited from " + getOwner() + " account whose a balance is now " + UtilsCourriers.format(getAmount()) + " euros";
+		return "   + " + getOwner() + " account is credited with " + UtilsCourriers.format(amount) + " euros; its balance is now " + UtilsCourriers.format(getAmount()) + " euros";
 	}
 	
-	protected String messageForDebit(double amount) {
-		return "+ " +  getOwner() + " account is credited with " + UtilsCourriers.format(amount) + " euros; its balance is now " + UtilsCourriers.format(getAmount()) + " euros";
-	}
+
 }

@@ -36,4 +36,14 @@ public abstract class DecoratorLetter<L extends Letter<?> & Decorable> extends L
 	public Content getContent() {
 		return letter.getContent();
 	}
+	
+	@Override
+	public void setSender(Inhabitant sender) {
+		letter.setSender(sender);
+	}
+	
+	@Override
+	public void setReceiver(Inhabitant receiver) {
+		letter.setReceiver(receiver);
+	}
 }

@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.tests.letters.content;
+package fr.univ_lille1.fil.coo.courriers.tests.letters.contents;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

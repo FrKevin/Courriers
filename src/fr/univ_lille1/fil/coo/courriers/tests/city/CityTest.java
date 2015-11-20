@@ -11,10 +11,9 @@ import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
-public class TestCity {
+public class CityTest {
 	
 	protected City city;
-	protected static final int NB_INHABITANTS = 5;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -57,6 +56,7 @@ public class TestCity {
 
 	@Test
 	public void testSendLetter() {
+		
 		city.sendLetter(new SimpleLetter(new TextContent("content")));
 		
 		assertEquals(1, city.getPostbox().getLetters().size());
@@ -67,7 +67,20 @@ public class TestCity {
 
 	@Test
 	public void testDistributeLetters() {
-		fail("Not yet implemented");
+		Inhabitant h1 = new Inhabitant("H", city);
+		Inhabitant h2 = new Inhabitant("H2", city);
+		city.addInhabitants(h1);
+		city.addInhabitants(h2);
+		
+		SimpleLetter letter = new SimpleLetter(0, h1, h2, new TextContent("content"));
+		city.sendLetter(letter);
+		
+		
+		city.distributeLetters();
+
+		assertTrue(city.getPostbox().isEmpty());
+		
+		
 	}
 
 }

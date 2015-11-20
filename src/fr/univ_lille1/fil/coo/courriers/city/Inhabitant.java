@@ -49,7 +49,15 @@ public class Inhabitant {
 	public boolean debit(double amount){
 		return bankAccount.debit(amount);
 	}
-
+	
+	public boolean debitWithMessage(double amount) {
+		return bankAccount.debitWithMessage(amount);
+	}
+	
+	public void creditWithMessage(double amount){
+		bankAccount.creditWithMessage(amount);
+	}
+	
 	/**
 	 * Return the name of the inhabitant
 	 * @return name of the inhabitant
@@ -83,7 +91,7 @@ public class Inhabitant {
 	}
 	
 	/**
-	 * Display all letters availables in the postbox
+	 * Display all letters availables in the postbox, and empty the postbox
 	 */
 	public void showLetters() {
 		while(!postbox.isEmpty()) {
