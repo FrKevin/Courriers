@@ -33,4 +33,8 @@ public class CompositeContent extends Content{
 		}
 		return allToString.toString();
 	}
+
+	public List<Content> getContents() {
+		return contents;
+	}
 }
