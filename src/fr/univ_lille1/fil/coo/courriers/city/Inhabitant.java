@@ -91,7 +91,7 @@ public class Inhabitant {
 	}
 	
 	/**
-	 * Display all letters availables in the postbox, and empty the postbox
+	 * Display all letters availables in the postbox
 	 */
 	public void showLetters() {
 		while(!postbox.isEmpty()) {

@@ -51,8 +51,8 @@ public abstract class Letter<T extends Content> {
 	 * Check if the content is null of not
 	 * @return {@link NullPointerException} if there is no content, false in the other case
 	 */
-	protected boolean isNullForContent(){
-		if(getContent() == null){
+	public boolean isNullForContent(){
+		if(content == null){
 			throw new NullPointerException("The content is null.");
 		}
 		return false;
@@ -62,7 +62,7 @@ public abstract class Letter<T extends Content> {
 	 * Check if there is a receiver
 	 * @return {@link NullPointerException} if there is no receiver, false in the other case
 	 */
-	protected boolean isNullForReceiver(){
+	public boolean isNullForReceiver(){
 		if(getReceiver() == null){
 			throw new NullPointerException("The receiver is null.");
 		}
@@ -73,7 +73,7 @@ public abstract class Letter<T extends Content> {
 	 * Check if there is a sender
 	 * @return {@link NullPointerException} if there is no sender, false in the other case
 	 */
-	protected boolean isNullForSender(){
+	public boolean isNullForSender(){
 		if(getSender() == null){
 			throw new NullPointerException("The sender is null.");
 		}
@@ -149,8 +149,9 @@ public abstract class Letter<T extends Content> {
 	 * @param cost The cost of the letter
 	 */
 	public void setCost(double cost) {
-		if( cost < 0)
+		if( cost < 0) {
 			throw new IllegalArgumentException("The cost is negatif.");
+		}
 		this.cost = cost;
 	}
 
