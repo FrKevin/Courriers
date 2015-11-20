@@ -6,7 +6,6 @@ import fr.univ_lille1.fil.coo.courriers.factory.inhabitant.FactoryInhabitant;
 
 /**
  * A basis creation of a city
- * @author maxime
  *
  */
 public class DefaultFactoryCity implements FactoryCity {

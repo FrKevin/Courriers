@@ -4,6 +4,9 @@ import java.util.Random;
 
 import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
 
+/**
+ * Represent a factory to generate a random {@link MoneyContent}
+ */
 public class DefaultFactoryMoneyContent implements FactoryMoneyContent{
 	
 

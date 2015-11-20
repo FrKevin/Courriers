@@ -3,13 +3,23 @@ package fr.univ_lille1.fil.coo.courriers.letters.contents;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * List of content in a letter
+ */
 public class CompositeContent extends Content{
 	protected List<Content> contents = new ArrayList<>();
 	
+	/**
+	 * Create a composite for a letter
+	 */
 	public CompositeContent() {
 		this(new ArrayList<>());
 	}
 	
+	/**
+	 * Create a composite with a list of {@link Content} already defined
+	 * @param contents The list of {@link Content} to use in the composite
+	 */
 	public CompositeContent(List<Content> contents){
 		this.contents = contents;
 	}

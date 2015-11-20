@@ -4,7 +4,7 @@ import fr.univ_lille1.fil.coo.courriers.city.City;
 import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 
 /**
- * Represent a factory to generate a specified case of an {@link Inhabitant}
+ * Represent a factory to generate a specific case of an {@link Inhabitant}
  */
 public interface FactoryInhabitant {
 

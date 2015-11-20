@@ -1,8 +1,15 @@
 package fr.univ_lille1.fil.coo.courriers.letters.contents;
 
+/**
+ * Text content for a letter
+ */
 public class TextContent extends Content {
 	protected String contentLetter;
 	
+	/**
+	 * Create a text content
+	 * @param contentLetter the content of the letter
+	 */
 	public TextContent(String contentLetter){
 		this.contentLetter = contentLetter;
 	}
@@ -12,6 +19,10 @@ public class TextContent extends Content {
 		return "content is a text content ("+ contentLetter +")";
 	}
 
+	/**
+	 * Get the text of the {@link TextContent}
+	 * @return The text of the content
+	 */
 	public String getContentLetter() {
 		return contentLetter;
 	}

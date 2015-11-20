@@ -4,6 +4,9 @@ import fr.univ_lille1.fil.coo.courriers.factory.contents.moneyContent.DefaultFac
 import fr.univ_lille1.fil.coo.courriers.factory.contents.moneyContent.FactoryMoneyContent;
 import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
 
+/**
+ * Represent a factory to generate a classic {@link PromissoryNote}
+ */
 public class DefaultFactoryPrommisoryNote implements FactoryPromissoryNote{
 	protected FactoryMoneyContent factoryMoneyContent;
 	

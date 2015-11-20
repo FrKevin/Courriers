@@ -4,10 +4,19 @@ import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 
+/**
+ * Class representing a specific decorator for a {@link Letter}
+ * @param <L> A letter that extends {@link Decorable}
+ */
 public abstract class DecoratorLetter<L extends Letter<?> & Decorable> extends Letter<Content> {
 
 	protected Letter<?> letter;
 
+	/**
+	 * Generate a decorator for a {@link Letter}
+	 * @param cost The cost of the letter
+	 * @param letter The type of letter
+	 */
 	public DecoratorLetter(double cost, L letter) {
 		super(cost);
 		this.letter = letter;

@@ -8,6 +8,9 @@ import fr.univ_lille1.fil.coo.courriers.factory.contents.textContent.DefaultFact
 import fr.univ_lille1.fil.coo.courriers.letters.contents.CompositeContent;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.Content;
 
+/**
+ * This factory generate a list of {@link Content}
+ */
 public class DefaultFactoryCompositeContent implements FactoryCompositeContent{
 
 	@Override

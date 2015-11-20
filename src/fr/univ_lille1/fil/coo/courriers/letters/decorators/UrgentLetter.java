@@ -6,6 +6,10 @@ public class UrgentLetter<L extends Letter<?> & Decorable> extends DecoratorLett
 	
 	protected static final double EXTRA_COST = 2;
 	
+	/**
+	 * Generate a decorator for a {@link Letter} the make it urgent
+	 * @param letter The type of letter
+	 */
 	public UrgentLetter(L letter) {
 		super(letter.getCost()*EXTRA_COST, letter);
 

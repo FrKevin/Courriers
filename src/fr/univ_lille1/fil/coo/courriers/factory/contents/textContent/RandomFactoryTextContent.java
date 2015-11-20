@@ -4,6 +4,9 @@ import java.util.Random;
 
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
+/**
+ * Represent a factory to generate a random content
+ */
 public class RandomFactoryTextContent implements FactoryTextContent{
 private static final Random RAND = new Random();
 	

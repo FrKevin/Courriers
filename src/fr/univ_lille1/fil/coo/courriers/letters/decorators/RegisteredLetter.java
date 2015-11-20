@@ -7,6 +7,10 @@ import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 public class RegisteredLetter<L extends Letter<?> & Decorable> extends DecoratorLetter<L> {
 	protected static final double EXTRA_COST = 15;
 	
+	/**
+	 * Generate a decorator for a {@link Letter} the make it registered
+	 * @param letter The type of letter
+	 */
 	public RegisteredLetter(L letter) {
 		super(letter.getCost()+EXTRA_COST, letter);
 	}

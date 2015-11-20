@@ -7,9 +7,13 @@ import fr.univ_lille1.fil.coo.courriers.factory.letters.promissoryNote.FactoryPr
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.DefaultFactorySimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.factory.letters.simpleLetter.FactorySimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.ComplexLetter;
+import fr.univ_lille1.fil.coo.courriers.letters.Letter;
 import fr.univ_lille1.fil.coo.courriers.letters.PromissoryNote;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 
+/**
+ * Represent a factory to generate basic {@link Letter}
+ */
 public class DefaultAbstractFactoryLetter implements AbstractFactoryLetter{
 
 	protected FactorySimpleLetter factorySimpleLetter;

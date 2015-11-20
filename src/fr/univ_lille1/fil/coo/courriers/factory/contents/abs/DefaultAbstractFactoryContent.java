@@ -10,6 +10,9 @@ import fr.univ_lille1.fil.coo.courriers.letters.contents.CompositeContent;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
+/**
+ * This factory generate contents for letters
+ */
 public class DefaultAbstractFactoryContent implements AbstractFactoryContent{
 	
 	protected FactoryCompositeContent factoryCompositeContent;

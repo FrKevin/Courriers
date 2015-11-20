@@ -4,6 +4,9 @@ import fr.univ_lille1.fil.coo.courriers.factory.contents.compositeContent.Defaul
 import fr.univ_lille1.fil.coo.courriers.factory.contents.compositeContent.FactoryCompositeContent;
 import fr.univ_lille1.fil.coo.courriers.letters.ComplexLetter;
 
+/**
+ * Represent a factory to generate a classic {@link ComplexLetter}
+ */
 public class DefaultFactoryComplexLetter implements FactoryComplexLetter{
 
 protected FactoryCompositeContent factoryCompositeContent;
