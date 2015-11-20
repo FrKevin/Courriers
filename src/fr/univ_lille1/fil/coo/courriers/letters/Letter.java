@@ -51,8 +51,8 @@ public abstract class Letter<T extends Content> {
 	 * Check if the content is null of not
 	 * @return {@link NullPointerException} if there is no content, false in the other case
 	 */
-	public boolean isNullForContent(){
-		if(content == null){
+	protected boolean isNullForContent(){
+		if(getContent() == null){
 			throw new NullPointerException("The content is null.");
 		}
 		return false;
@@ -149,9 +149,8 @@ public abstract class Letter<T extends Content> {
 	 * @param cost The cost of the letter
 	 */
 	public void setCost(double cost) {
-		if( cost < 0) {
+		if( cost < 0)
 			throw new IllegalArgumentException("The cost is negatif.");
-		}
 		this.cost = cost;
 	}
 
