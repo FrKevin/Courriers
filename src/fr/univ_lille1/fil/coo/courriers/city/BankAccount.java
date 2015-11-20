@@ -53,9 +53,6 @@ public class BankAccount {
 		this.amount += amount;
 	}
 	
-	/*
-	 * A voir hasDebit(BankAccount bankAccount) debit(BankAccount bankAccount) credit(BankAccount bankAccount)
-	 */
 	/**
 	 * Return the amount available on the account
 	 * @return The amount avalable in the bank account

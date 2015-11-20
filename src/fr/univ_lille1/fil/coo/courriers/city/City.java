@@ -38,7 +38,7 @@ public class City {
 	 */
 	public void sendLetter(Letter<?> letter){
 		if(!letter.getSender().debit(letter.getCost())){
-			throw new IllegalArgumentException("The sender have negative solde account.");
+			throw new IllegalArgumentException("The sender doesn't have enough money");
 		}
 		postbox.addLetter(letter);
 		System.out.println(messageSender(letter));

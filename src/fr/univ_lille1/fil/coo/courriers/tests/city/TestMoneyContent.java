@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.tests;
+package fr.univ_lille1.fil.coo.courriers.tests.city;
 
 import static org.junit.Assert.*;
 
