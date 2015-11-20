@@ -39,7 +39,7 @@ public class Postbox {
 	}
 
 	/**
-	 * Get and remove the first letter from the postbox
+	 * Return the first letter of the postbox
 	 * @return The first letter of the postbox
 	 */
 	public Letter<?> takeFirstLetter() {
