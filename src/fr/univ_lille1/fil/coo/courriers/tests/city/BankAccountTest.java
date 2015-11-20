@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import fr.univ_lille1.fil.coo.courriers.city.BankAccount;
 
-public class TestBankAccount {
+public class BankAccountTest {
 	
 	protected BankAccount bankAccount;
 	protected static final double VAL12 = 12;

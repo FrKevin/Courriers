@@ -1,4 +1,4 @@
-package fr.univ_lille1.fil.coo.courriers.tests.city;
+package fr.univ_lille1.fil.coo.courriers.tests.letters.contents;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import fr.univ_lille1.fil.coo.courriers.letters.contents.MoneyContent;
 
-public class TestMoneyContent {
+public class MoneyContentTest {
 	
 	protected MoneyContent moneyContent;
 	
@@ -30,18 +30,21 @@ public class TestMoneyContent {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void MoneyContentWidthIllegalArgumentException(){
-		/* Supprime l'avertissement pour le compilateur  */
-		@SuppressWarnings("unused")
-		MoneyContent err = new MoneyContent(-1);
+		new MoneyContent(-1);
 	}
 	
 	@Test
 	public void testMoneyContent() {
-		assertTrue(moneyContent.getMoney() == 10);
+		assertEquals(10, moneyContent.getMoney(), 0.001);
+	}
+
+	public void testSetMoney() {
+		moneyContent.setMoney(2.45);
+		assertEquals(2.45, moneyContent.getMoney(), 0.001);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetMoney() {
+	public void testSetMoneyException() {
 		moneyContent.setMoney(-10);
 	}
 }

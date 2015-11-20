@@ -11,7 +11,7 @@ import fr.univ_lille1.fil.coo.courriers.city.Inhabitant;
 import fr.univ_lille1.fil.coo.courriers.letters.SimpleLetter;
 import fr.univ_lille1.fil.coo.courriers.letters.contents.TextContent;
 
-public class TestCity {
+public class CityTest {
 	
 	protected City city;
 	
